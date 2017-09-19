@@ -15,6 +15,8 @@
 	<script type="text/javascript" src="js/services/serialGeneratorService.js"></script>
 	<script type="text/javascript" src="js/value/configValue.js"></script>
 	<script type="text/javascript" src="js/config/serialGeneratorConfig.js"></script>
+	<script type="text/javascript" src="js/filters/nameFilter.js"></script>
+	<script type="text/javascript" src="js/filters/ellipsisFilter.js"></script>
 	<script type="text/javascript">
 		
 	</script>
@@ -35,7 +37,7 @@
 			<tr ng-class="{selecionado: contato.selecionado}" ng-repeat="contato in contatos | filter: {nome: criterioDeBusca} | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
 				<td><input type="checkbox" name="checkbox" ng-model="contato.selecionado"></td>
 				<td>{{contato.serial}}</td>
-				<td>{{contato.nome}}</td>
+				<td>{{contato.nome | name | ellipsis: 14}}</td>
 				<td>{{contato.telefone}}</td>
 				<td>{{contato.operadora.nome | lowercase}}</td>
 				<td>{{contato.data | date:"dd/MM/yyyy"}}</td>
@@ -56,7 +58,7 @@
 			</div>
 			<div ng-message="minlength" class="alert alert-danger" style="margin-bottom: 2%;">
 				O campo nome deve ter no mínimo 10 caracteres.
-			</div>
+			</di14
 		</div>
 		<div ng-show="contatoForm.telefone.$error.required && contatoForm.telefone.$dirty" class="alert alert-danger" style="margin-bottom: 2%;">
 			Por favor, preenxa o campo telefone!
