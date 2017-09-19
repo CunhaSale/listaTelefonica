@@ -5,7 +5,12 @@ $scope.operadoras = [];
 
 var carregarContatos = function(){
 	contatosAPI.getContatos().then(function(response){
+		response.data.forEach(function(item){
+			item.serial = serialGenerator.generate();
+		});
 		$scope.contatos = response.data;
+	}).catch(function(response, status){
+		$scope.error = "Não foi possível carregar os dados!";
 	});
 };
 
