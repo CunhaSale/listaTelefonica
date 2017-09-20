@@ -19,20 +19,11 @@
 	<script type="text/javascript" src="js/filters/nameFilter.js"></script>
 	<script type="text/javascript" src="js/filters/ellipsisFilter.js"></script>
 	<script type="text/javascript" src="js/directives/uiAlertDirective.js"></script>
+	<script type="text/javascript" src="js/directives/uiDateDirective.js"></script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
 	<div class="jumbotron">
-		<h3 style="margin-bottom: 6%">{{app}}</h3>
-
-		<ui-alert title="Ops, aconteceu um problema!">
-			{{error}}
-		</ui-alert>
-
-		<ui-alert title="AngularJS">
-			Criando Diretivas - Part1
-		</ui-alert>
-		
-		<input type="text" class="form-control" name="criterioDeBusca" ng-model="criterioDeBusca" placeholder="O que você procura?">
+		<input type="text" class="form-control" name="criterioDeBusca" ng-model="criterioDeBusca" placeholder="O que você procura?"/>
 		<table class="table" ng-show="contatos.length > 0">
 			<tr>
 				<th></th>
@@ -49,14 +40,14 @@
 				<td>{{contato.telefone}}</td>
 				<td>{{contato.operadora.nome | lowercase}}</td>
 				<td>{{contato.data | date:"dd/MM/yyyy"}}</td>
-				<td><div style="width: 20px; height: 20px;" ng-style="{'background-color': contato.cor}"></div></td>
 			</tr>
 		</table>
-		<hr>
+		<hr/>
 		<form name="contatoForm">
 			<input class="form-control" type="text" name="nome" ng-model="contato.nome" placeholder="Nome" ng-required="true" ng-minlength="10">
-			<input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/">
-			<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + '(' + (operadora.preco | currency) + ')' for operadora in operadoras | orderBy:'nome'">
+			<input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
+			<input class="form-control" type="text" name="data" ng-model="contato.data" placeholder="Data" ui-date>
+			<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + '(' + (operadora.preco | currency) + ')' for operadora in operadoras | orderBy:'nome'"/>
 				<option value="">Selecione uma operadora</option>
 			</select>
 		</form>
@@ -77,9 +68,6 @@
 		<button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar Contato</button>
 		<button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-if="isContatoSelecionado(contatos)">Apagar Contatos</button>
 	</div>
-	<!--<div style="text-align: center; margin-bottom: 2%;">
-		Criado por Gabriel Cunha
-	</div>-->
-	<div ng-include="view/footer.html"></div>
+	<div ng-include="'view/footer.html'"></div>
 </body>
 </html>
