@@ -20,9 +20,28 @@
 	<script type="text/javascript" src="js/filters/ellipsisFilter.js"></script>
 	<script type="text/javascript" src="js/directives/uiAlertDirective.js"></script>
 	<script type="text/javascript" src="js/directives/uiDateDirective.js"></script>
+	<script type="text/javascript" src="js/directives/uiAccordionDirective.js"></script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
 	<div class="jumbotron">
+		<ui-accordions>
+			<ui-accordion title="Accordion1">
+				Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos,
+				 e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja 
+				 de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só
+				  a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.
+			</ui-accordion>
+
+			<ui-accordion title="Accordion2">
+				Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos,
+				 e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja 
+				 de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só
+				  a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.
+			</ui-accordion>
+		</ui-accordions>
+
+		<hr>
+
 		<input type="text" class="form-control" name="criterioDeBusca" ng-model="criterioDeBusca" placeholder="O que você procura?"/>
 		<table class="table" ng-show="contatos.length > 0">
 			<tr>
