@@ -1,0 +1,18 @@
+<div class="jumbotron">
+	<table class="table table-striped">
+		<h4>Detalhes Contato</h4>
+		<tr>
+			<td style="width: 4%"><h5>Nome: </h5></td>
+			<td>{{contato.nome | name}}</td>
+		</tr>
+		<tr>
+			<td style="width: 4%"><h5>Telefone: </h5></td>
+			<td>{{contato.telefone}}</td>
+		</tr>
+		<tr>
+			<td style="width: 4%"><h5>Data: </h5></td>
+			<td>{{contato.data | date:"dd/MM/yyyy"}}</td>
+		</tr>
+	</table>
+	<a href="#!/contatos">Voltar</a>
+</div>
